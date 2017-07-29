@@ -1,13 +1,6 @@
 def chunk(iterable, chunk_size=20):
-    """chunk an iterable [1,2,3,4,5,6,7,8] -> ([1,2,3], [4,5,6], [7,8])"""
-    items = []
-    for value in iterable:
-        items.append(value)
-        if len(items) == chunk_size:
-            yield items
-            items = []
-    if items:
-        yield items
+    "chunk an iterable [1,2,3,4,5,6,7,8] -> ([1,2,3], [4,5,6], [7,8])"
+    return [list(iterable)[i:i+chunk_size] for i in range(1, len(list(iterable)), chunk_size)]
 
 
 class MessageRouter(object):
